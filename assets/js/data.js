@@ -12,7 +12,7 @@ export const socialLinks = [
     { 
         name: "YouTube", 
         desc: "Tutorials & Explanations", 
-        url: "https://www.youtube.com/ruk-zh4n", 
+        url: "https://www.youtube.com/@ruk-zh4n", 
         icon: "fab fa-youtube", 
         color: "text-red-600",
         size: "wide" 
@@ -36,14 +36,14 @@ export const techStack = [
 ];
 
 export const projects = [
-    //{
-        //title: "",
-        //category: "Research",
-       // date: "Dec 2025",
-       // desc: ".",
-       // url: "",
-      //  color: "blue"
-    //},
+    {
+        title: "Fashion-Shop",
+        category: "Open Source",
+        date: "Dec 2025",
+        desc: "A simple, responsive e-commerce frontend interface built entirely with pure HTML and CSS. This project does not use any external JavaScript files or complex frameworks, making it extremely lightweight and easy to run locally.",
+        url: "https://github.com/Syntiox/Fashion-Shop",
+        color: "blue"
+    }
    // {
       //  title: "",
      //   category: "Open Source",
