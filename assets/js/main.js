@@ -1,43 +1,32 @@
 import { socialLinks, techStack, projects } from './data.js';
 
-// --- ADVANCED SECURITY WATCHDOG ---
-function validateIntegrity() {
+// --- SECURITY LOCK (sh4lu-z & ruk-zh4n) ---
+const initIntegriyCheck = () => {
     const devCredit = document.getElementById('dev-credit');
     const agencyLink = document.getElementById('agency-link');
 
-    // ruk-zh4n සහ sh4lu-z යන නම් දෙකම footer එකේ තියෙන්නම ඕනේ
-    const isAuthentic = 
-        (devCredit && devCredit.innerText.includes('ruk-zh4n')) && 
+    // නම් දෙකම තියෙනවද කියලා බලනවා
+    const valid = 
+        (devCredit && devCredit.innerText.toLowerCase().includes('ruk-zh4n')) && 
         (agencyLink && agencyLink.innerText.toLowerCase().includes('sh4lu-z'));
 
-    if (!isAuthentic) {
-        // ක්‍රෙඩිට් වෙනස් කරොත් පේජ් එක ලොක් කරනවා
+    if (!valid) {
+        // ක්‍රෙඩිට්ස් අයින් කරලා නම් පේජ් එක නිකන්ම "කළු" වෙලා error එකක් එනවා
         document.body.innerHTML = `
-            <div style="height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; background:#020617; color:#ef4444; font-family: 'JetBrains Mono', monospace; text-align:center; padding:40px;">
-                <div style="border: 1px solid #ef444455; padding: 40px; border-radius: 20px; background: rgba(239, 68, 68, 0.02);">
-                    <h1 style="font-size:40px; margin-bottom: 20px;">ACCESS_DENIED</h1>
-                    <p style="color:#64748b; font-size: 14px; max-width: 500px; line-height: 1.6;">
-                        Unauthorized modification of developer identity: <br>
-                        <b>[ruk-zh4n & sh4lu-z]</b> signature not found.
-                    </p>
-                    <div style="margin-top: 30px; font-size: 10px; color: #475569; letter-spacing: 2px;">
-                        SYSTEM_STATUS: HALTED
-                    </div>
+            <div style="height:100vh; display:flex; align-items:center; justify-content:center; background:#020617; color:#1e293b; font-family:monospace; text-align:center;">
+                <div>
+                    <h1 style="font-size:12px; letter-spacing:5px;">SYSTEM_INTEGRITY_FAILED</h1>
+                    <p style="font-size:10px; margin-top:10px; opacity:0.5;">Missing required developer signatures.</p>
                 </div>
             </div>
         `;
-        throw new Error("Integrity check failed: Developer credits removed.");
+        throw "Stop Execution";
     }
-}
+};
 
-// Render වලට කලින් run කරන්න
-try {
-    validateIntegrity();
-} catch (err) {
-    console.error(err.message);
-}
+// HTML එක ලෝඩ් වෙන්න තත්පරයකින් 1/10ක් දීලා චෙක් කරනවා 
+setTimeout(initIntegriyCheck, 100);
 
-// 1. Social Links Render 
 // 1. Social Links Render (Logos Only)
 const socialGrid = document.getElementById('social-grid');
 if (socialGrid) {
