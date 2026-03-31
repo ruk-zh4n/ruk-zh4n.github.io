@@ -1,18 +1,20 @@
 import { socialLinks, techStack, projects } from './data.js';
 
 // 1. Social Links Render 
+// 1. Social Links Render (Logos Only)
 const socialGrid = document.getElementById('social-grid');
 if (socialGrid) {
     socialLinks.forEach(link => {
         const a = document.createElement('a');
         a.href = link.url;
         a.target = "_blank";
-        // හැම ලින්ක් එකක්ම එකම සයිස් එකට ලස්සනට එන්න හදපු classes
-        a.className = "flex flex-col items-center justify-center gap-3 p-5 rounded-2xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.08] hover:-translate-y-1 hover:border-blue-500/50 transition-all duration-300 group";
         
+        // කාඩ් එක අයින් කරලා icon එකට විතරක් effect එක දුන්නා
+        a.className = "group relative p-2 transition-all duration-300 hover:-translate-y-2 hover:scale-110";
+        
+        // ලෝගෝ එක (text-4xl දාලා ටිකක් ලොකු කරලා තියෙන්නේ)
         a.innerHTML = `
-            <i class="${link.icon} text-3xl text-slate-400 group-hover:${link.color || 'text-blue-400'} group-hover:scale-110 transition-all duration-300"></i>
-            <span class="text-xs font-medium text-slate-400 group-hover:text-white tracking-wide">${link.name}</span>
+            <i class="${link.icon} text-4xl text-slate-400 group-hover:${link.color || 'text-blue-400'} drop-shadow-none group-hover:drop-shadow-[0_0_15px_rgba(59,130,246,0.4)] transition-all duration-300"></i>
         `;
         socialGrid.appendChild(a);
     });
