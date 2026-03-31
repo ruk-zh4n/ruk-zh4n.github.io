@@ -1,71 +1,56 @@
-
 export const socialLinks = [
     { 
         name: "GitHub", 
-        desc: "Coding & Mods",    
         url: "https://github.com/ruk-zh4n", 
         icon: "fab fa-github", 
-        color: "text-white",
-        size: "small" 
+        color: "group-hover:text-white" 
     },  
-
     { 
         name: "YouTube", 
-        desc: "Tutorials & Explanations", 
         url: "https://www.youtube.com/@ruk-zh4n", 
         icon: "fab fa-youtube", 
-        color: "text-red-600",
-        size: "wide" 
+        color: "group-hover:text-red-500" 
     },
     { 
-        name: "Yssube", 
-        desc: "Tutorials & Explanations", 
-        url: "https://www.youtube.com/@ruk-zh4n", 
-        icon: "fab fa-youtube", 
-        color: "text-red-600",
-        size: "wide" 
+        name: "Facebook", 
+        url: "https://facebook.com/your-profile", 
+        icon: "fab fa-facebook", 
+        color: "group-hover:text-blue-500" 
     },
-
-   // { 
-     //   name: "X", 
-    //    desc: "Updates",
-   //     url: "", 
-   //     icon: "fab fa-x-twitter", 
-  //      color: "text-white",
-   //     size: "small"
-  //  }
+    { 
+        name: "WhatsApp", 
+        url: "https://wa.me/94743852587", 
+        icon: "fab fa-whatsapp", 
+        color: "group-hover:text-green-500" 
+    }
 ];
 
-
 export const techStack = [
-    { name: "Node.js", icon: "fab fa-js", color: "text-yellow-400" },
+    { name: "HTML5", icon: "fab fa-html5", color: "text-orange-500" },
+    { name: "CSS3", icon: "fab fa-css3-alt", color: "text-blue-500" },
+    { name: "JavaScript", icon: "fab fa-js", color: "text-yellow-400" },
+    { name: "Node.js", icon: "fab fa-node-js", color: "text-green-500" },
     { name: "Python", icon: "fab fa-python", color: "text-blue-400" },
-    { name: "Databases", icon: "fas fa-database", color: "text-cyan-400" }
+    { name: "Tailwind", icon: "fab fa-css3", color: "text-cyan-400" },
+    { name: "Databases", icon: "fas fa-database", color: "text-slate-400" },
+    { name: "Cyber Security", icon: "fas fa-shield-halved", color: "text-red-500" }
 ];
 
 export const projects = [
     {
         title: "Fashion-Shop",
-        category: "Open Source",
+        category: "Frontend",
         date: "Dec 2025",
-        desc: "A simple, responsive e-commerce frontend interface built entirely with pure HTML and CSS. This project does not use any external JavaScript files or complex frameworks, making it extremely lightweight and easy to run locally.",
+        desc: "A simple, responsive e-commerce frontend interface built entirely with pure HTML and CSS. Optimized for performance and lightweight usage.",
         url: "https://github.com/Syntiox/Fashion-Shop",
         color: "blue"
+    },
+    {
+        title: "Coming Soon",
+        category: "Future Project",
+        date: "2026",
+        desc: "An upcoming project focusing on advanced backend architecture and security protocols. Stay tuned for updates.",
+        url: "#",
+        color: "orange"
     }
-   // {
-      //  title: "",
-     //   category: "Open Source",
-     //   date: "Nov 2025",
-     //   desc: "",
-     //   url: "",
-     //   color: "read"
-   // },
-  //  {
-   //     title: "",
-   //     category: "Open Source",
-  //      date: "2026",
-  //      desc: "",
-   //     url: "",
-  //      color: "orange"
-  //  }
 ];
