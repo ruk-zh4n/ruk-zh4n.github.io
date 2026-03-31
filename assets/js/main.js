@@ -1,53 +1,36 @@
 import { socialLinks, techStack, projects } from './data.js';
 
-// Social Links Render
+// 1. Social Links Render 
 const socialGrid = document.getElementById('social-grid');
 if (socialGrid) {
     socialLinks.forEach(link => {
-        const isWide = link.size === 'wide';
-        const classes = isWide 
-            ? "card md:col-span-2 rounded-2xl p-5 flex items-center justify-between group"
-            : "card rounded-2xl p-5 flex flex-col justify-between h-32 md:h-auto group";
-
-        const content = isWide 
-            ? `
-                <div class="flex items-center gap-4">
-                    <div class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center ${link.color}">
-                        <i class="${link.icon} text-lg"></i>
-                    </div>
-                    <div><h3 class="font-bold text-white">${link.name}</h3><p class="text-xs text-slate-500">${link.desc}</p></div>
-                </div>
-                <i class="fas fa-chevron-right text-slate-600 group-hover:translate-x-1 transition-transform"></i>
-            `
-            : `
-                <div class="flex justify-between items-start">
-                    <i class="${link.icon} text-2xl ${link.color}"></i>
-                    <i class="fas fa-arrow-up-right text-xs text-slate-600 group-hover:text-white transition-colors"></i>
-                </div>
-                <div><h3 class="font-bold text-white">${link.name}</h3><p class="text-xs text-slate-500">${link.desc}</p></div>
-            `;
-
         const a = document.createElement('a');
         a.href = link.url;
         a.target = "_blank";
-        a.className = classes;
-        a.innerHTML = content;
+        // හැම ලින්ක් එකක්ම එකම සයිස් එකට ලස්සනට එන්න හදපු classes
+        a.className = "flex flex-col items-center justify-center gap-3 p-5 rounded-2xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.08] hover:-translate-y-1 hover:border-blue-500/50 transition-all duration-300 group";
+        
+        a.innerHTML = `
+            <i class="${link.icon} text-3xl text-slate-400 group-hover:${link.color || 'text-blue-400'} group-hover:scale-110 transition-all duration-300"></i>
+            <span class="text-xs font-medium text-slate-400 group-hover:text-white tracking-wide">${link.name}</span>
+        `;
         socialGrid.appendChild(a);
     });
 }
 
-// Tech Stack Render
+// 2. Tech Stack Render
 const techContainer = document.getElementById('tech-stack');
 if (techContainer) {
     techStack.forEach(tech => {
         const span = document.createElement('span');
-        span.className = `tech-badge ${tech.color}`;
-        span.innerHTML = `<i class="${tech.icon}"></i> ${tech.name}`;
+        // අලුත් theme එකට ගැලපෙන්න badge එක හැදුවා
+        span.className = `flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium bg-white/5 border border-white/10 text-slate-300 hover:text-white hover:bg-white/10 transition-colors`;
+        span.innerHTML = `<i class="${tech.icon} ${tech.color}"></i> ${tech.name}`;
         techContainer.appendChild(span);
     });
 }
 
-// Projects Render
+// 3. Projects Render
 const projectGrid = document.getElementById('project-grid');
 if (projectGrid) {
     projects.forEach(proj => {
@@ -58,14 +41,16 @@ if (projectGrid) {
         const a = document.createElement('a');
         a.href = proj.url;
         a.target = "_blank";
-        a.className = "card p-6 rounded-2xl group block";
+        // පරණ card class එක වෙනුවට අලුත් ලස්සන UI එක
+        a.className = "p-6 rounded-2xl bg-white/[0.02] border border-white/5 hover:bg-white/[0.05] hover:border-white/10 transition-all duration-300 group block";
+        
         a.innerHTML = `
             <div class="flex items-center gap-2 mb-4">
-                <span class="text-[10px] font-bold px-2 py-1 rounded ${bgClass} ${colorClass} border ${borderClass} uppercase">${proj.category}</span>
-                <span class="text-[10px] text-slate-500">${proj.date}</span>
+                <span class="text-[10px] font-bold px-2 py-1 rounded ${bgClass} ${colorClass} border ${borderClass} uppercase tracking-wider">${proj.category}</span>
+                <span class="text-[10px] text-slate-500 font-mono">${proj.date}</span>
             </div>
             <h3 class="text-xl font-bold text-white group-hover:${colorClass} transition-colors">${proj.title}</h3>
-            <p class="text-slate-400 text-sm mt-2">${proj.desc}</p>
+            <p class="text-slate-400 text-sm mt-3 leading-relaxed">${proj.desc}</p>
         `;
         projectGrid.appendChild(a);
     });
