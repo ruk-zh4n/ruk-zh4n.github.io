@@ -16,7 +16,15 @@ export const socialLinks = [
         icon: "fab fa-youtube", 
         color: "text-red-600",
         size: "wide" 
-    },        
+    },
+    { 
+        name: "Yssube", 
+        desc: "Tutorials & Explanations", 
+        url: "https://www.youtube.com/@ruk-zh4n", 
+        icon: "fab fa-youtube", 
+        color: "text-red-600",
+        size: "wide" 
+    },
 
    // { 
      //   name: "X", 
